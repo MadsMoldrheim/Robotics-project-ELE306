@@ -49,11 +49,12 @@ robot, etc)
     ~~Demonstrate example motion planning, on a task relevant to your robot design challenge (or similar)~~
     
 - For the mobile robot platform(s):
-  1. Determine suitable controller(s) to control the mobile robot for your
-chosen challenge
+    
+    ~~Determine suitable controller(s) to control the mobile robot for your chosen challenge~~
+    
   > Mads
-  2. Implement the kinematic model and the controller(s) in Matlab
-(/Simulink)
+    
+    ~~Implement the kinematic model and the controller(s) in Matlab (/Simulink)~~
   > Mads
 
 - For the robotic system in general:
@@ -84,13 +85,15 @@ robot for your challenge
   > Elias
 - For the complete system: Model your complete robot system using URDF and
 visualize the robot in Gazebo, including:
-  1. Your robot arm(s) mounted on your mobile platform
+
+  ~~1. Your robot arm(s) mounted on your mobile platform~~
   2. Your mobile platform, with wheels, sensors etc
+  
+  > Basically done men avhengig av en feil som eg ikkje får løst i 2 ^
+  
 - For the robot arm(s): Demonstrate controlling your robot arm(s) in Gazebo over
 ROS from Matlab, by following along a trajectory calculated in Matlab, or
 controlled using your differential kinematics implemented in Matlab.
 - For the mobile robot(s): Demonstrate controlling your mobile robot platform in
 Gazebo over ROS from Matlab.
 
-**5. Optional, if relevant: Control a physical UR, Turtlebot, or other robot using coordinates
-calculated with your Matlab code through ROS.**
