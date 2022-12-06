@@ -90,7 +90,8 @@ visualize the robot in Gazebo, including:
   
   2. Your mobile platform, with wheels, sensors etc
   
-  Basically done men avhengig av en feil som eg ikkje får løst i 2 ^
+  > Basically done men avhengig av en feil som eg ikkje får løst i 2 ^
+  
 - For the robot arm(s): Demonstrate controlling your robot arm(s) in Gazebo over
 ROS from Matlab, by following along a trajectory calculated in Matlab, or
 controlled using your differential kinematics implemented in Matlab.
