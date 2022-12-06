@@ -87,7 +87,6 @@ robot for your challenge
 visualize the robot in Gazebo, including:
 
   ~~1. Your robot arm(s) mounted on your mobile platform~~
-  
   2. Your mobile platform, with wheels, sensors etc
   
   > Basically done men avhengig av en feil som eg ikkje får løst i 2 ^
