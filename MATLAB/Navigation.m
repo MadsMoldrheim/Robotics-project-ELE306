@@ -27,6 +27,7 @@ waypoints = [0 0;
             9 10;
             10 10;
             10 0;];
+waypoints = waypoints*10;
 
 %Initialize a list for storing -----?????
 %deltaThetaa = [];
@@ -55,11 +56,9 @@ for i = 1:size(waypoints, 1)
             goal = true;
         else
             %While the goal is not met, update the robot by controllers
-            [v, w, deltaTheta] = Control(xtarget, ytarget, xpos, ypos, theta);
+            [v, w] = Control(xtarget, ytarget, xpos, ypos, theta);
             veh.update([v, w]);
             
-            %Update the list of  ?????
-            %deltaThetaa = [deltaThetaa deltaTheta];
         end
     end
 end
