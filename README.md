@@ -85,7 +85,9 @@ robot for your challenge
   > Elias
 - For the complete system: Model your complete robot system using URDF and
 visualize the robot in Gazebo, including:
+
   ~~1. Your robot arm(s) mounted on your mobile platform~~
+  
   2. Your mobile platform, with wheels, sensors etc
   
   Basically done men avhengig av en feil som eg ikkje får løst i 2 ^
