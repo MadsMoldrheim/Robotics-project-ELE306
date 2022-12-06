@@ -1,8 +1,11 @@
 # ELE306-project
 
 ## TODO
-**Anna**
-Design
+~~**Anna**
+Design~~
+
+**Anna & Mads**
+Transformasjonsmatrisen end-effector til base, skal det ikke brukes symbolske verdier for q1, q2? Skal brukes i transormasjonsmatrisen lenger nede i kapittelet
 
 **The rest of the guys**
 See notes in project requirements
