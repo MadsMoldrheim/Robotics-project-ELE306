@@ -76,8 +76,9 @@ commands according to the task chosen
   > Nora
   1. Simulate your chosen challenge, and discuss the simulation results in
 terms of chosen control strategy and performance
-  2. Discuss and implement a navigation strategy for the mobile robot for
-your challenge
+  2. 
+  3. ~Discuss and implement a navigation strategy for the mobile robot for
+your challenge~
   3. Discuss how you would implement a localization strategy for the mobile
 robot for your challenge
 
