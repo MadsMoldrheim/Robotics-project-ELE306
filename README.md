@@ -49,11 +49,12 @@ robot, etc)
     ~~Demonstrate example motion planning, on a task relevant to your robot design challenge (or similar)~~
     
 - For the mobile robot platform(s):
-  1. Determine suitable controller(s) to control the mobile robot for your
-chosen challenge
+    
+    ~~Determine suitable controller(s) to control the mobile robot for your chosen challenge~~
+    
   > Mads
-  2. Implement the kinematic model and the controller(s) in Matlab
-(/Simulink)
+    
+    ~~Implement the kinematic model and the controller(s) in Matlab (/Simulink)~~
   > Mads
 
 - For the robotic system in general:
