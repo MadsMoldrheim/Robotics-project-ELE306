@@ -2,9 +2,9 @@
 function void=m_localization_landmark()
 % Simulates navigation using landmarks
 %% Initializing
-randinit();                             % Initializes the radom number generator
+randinit();                             % Initializes the random number generator
 %% Navigation with a map
-map = LandmarkMap(20)                   % Create a landmark object
+map = LandmarkMap(20);                   % Create a landmark object
 map.plot();                             % Plot the map with landmarks
 %pause;
 %% Vehicle model

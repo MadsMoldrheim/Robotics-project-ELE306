@@ -29,9 +29,6 @@ waypoints = [0 0;
             10 0;];
 waypoints = waypoints*10;
 
-%Initialize a list for storing -----?????
-%deltaThetaa = [];
-
 %Loop through the list of waypoints
 for i = 1:size(waypoints, 1)
     xtarget = waypoints(i,1);
