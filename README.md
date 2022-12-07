@@ -77,8 +77,9 @@ commands according to the task chosen
 
 - For the mobile robot platform(s):
   > Nora
-  1. Simulate your chosen challenge, and discuss the simulation results in
-terms of chosen control strategy and performance
+  1. 
+  ~Simulate your chosen challenge, and discuss the simulation results in
+terms of chosen control strategy and performance~
   2. 
   3. ~Discuss and implement a navigation strategy for the mobile robot for
 your challenge~
