@@ -82,8 +82,9 @@ terms of chosen control strategy and performance
   2. 
   3. ~Discuss and implement a navigation strategy for the mobile robot for
 your challenge~
-  3. ~~Discuss how you would implement a localization strategy for the mobile
-robot for your challenge~~~ DELVIS, burde kanskje skrive litt mer 
+  3. 
+  4. ~Discuss how you would implement a localization strategy for the mobile
+robot for your challenge~ DELVIS, burde kanskje skrive litt mer 
 
 **4. Connect the Matlab code to ROS and simulate the physical robot in Gazebo**
   > Elias
