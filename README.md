@@ -71,7 +71,7 @@ angles to put the tool point of the end-effector at the apple’s location).
 **3. Simulate the kinematics of your robot in Matlab:**
 - For the robot arm(s), depending on robot design challenge either:
     ~~Use motion planning to move the robot end-effector through the
-required positions/orientations for the task chosen~~ , or
+required positions/orientations for the task chosen~~  , or
   2. Use differential kinematics to move the end-effector using velocity
 commands according to the task chosen
 
@@ -82,8 +82,8 @@ terms of chosen control strategy and performance
   2. 
   3. ~Discuss and implement a navigation strategy for the mobile robot for
 your challenge~
-  3. Discuss how you would implement a localization strategy for the mobile
-robot for your challenge
+  3. ~~Discuss how you would implement a localization strategy for the mobile
+robot for your challenge~~~ DELVIS, burde kanskje skrive litt mer 
 
 **4. Connect the Matlab code to ROS and simulate the physical robot in Gazebo**
   > Elias
