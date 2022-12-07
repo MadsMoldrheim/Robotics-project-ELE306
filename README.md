@@ -84,8 +84,7 @@ terms of chosen control strategy and performance
 your challenge~
   3. 
   4. ~Discuss how you would implement a localization strategy for the mobile
-robot for your challenge~ DELVIS, burde kanskje skrive litt mer 
-
+robot for your challenge~ 
 **4. Connect the Matlab code to ROS and simulate the physical robot in Gazebo**
   > Elias
 - For the complete system: Model your complete robot system using URDF and
