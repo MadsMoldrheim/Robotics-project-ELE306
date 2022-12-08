@@ -94,9 +94,10 @@ for i = 1:size(waypoints, 1)
         %Update the plastic if still active
         %Check if the plastic has reached the waypoint (within the limit)
         if abs(Pxtarget-Pxpos) < lim && abs(Pytarget-Pypos) < lim && Pactive
-            %If the goal is reached, set a new goal
-            Pxtarget = randi([0 10]);
-            Pytarget = randi([0 10]);
+            %If the goal is reached, add a new goal, not too far away from
+            %the previous goal
+            Pxtarget = min(max(Pxtarget + randi([-1 1]), 0), 10);
+            Pytarget = min(max(Pytarget + randi([-1 1]), 0), 10);
         elseif Pactive
             %While the goal is not met, update the robot by controllers
             [v, w] = Control(Pxtarget, Pytarget, Pxpos, Pypos, Ptheta);
