@@ -1,4 +1,4 @@
-# ELE306-project
+# Robotics project ELE306
 
 ## Introduction
 
