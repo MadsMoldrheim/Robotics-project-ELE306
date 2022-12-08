@@ -1,5 +1,5 @@
 **arm.m**\
-Temporary 
+First draft of robot arm simulation
 
 **ArmKinematicsAndSimulation.m**\
 The simulation of the robot arm
