@@ -24,9 +24,6 @@ Not actively used in the project, but a source of inspiration
 **Navigation.m**\
 Navigation algorithm for controlling a differential steered vehicle in a zig-zag pattern
 
-**Sensor_ele306_sem.m**\
-??
-
 **SimulatedPlastic.m**\
 Simulation of pursuit of a piece of plastic.
 
