@@ -1,0 +1,27 @@
+<launch>
+  <arg name="robot_name"  default="boat_robot"/>
+  <arg name="init_x_pos" default="0.0"/>
+  <arg name="init_y_pos" default="0.0"/>
+  <arg name="init_z_pos" default="0.0"/>
+  <arg name="init_yaw"   default="0.0"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find boat_simulation)/urdf/boat_robot.urdf.xacro'"/>
+
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+    args="-urdf -model $(arg robot_name) -x $(arg init_x_pos) -y $(arg init_y_pos) -z $(arg init_z_pos) -Y $(arg init_yaw) -param robot_description" />
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+    <param name="publish_frequency" type="double" value="100.0" />
+    <param name="tf_prefix" value="boat_robot" />
+  </node>
+
+  <rosparam file="$(boat_simulation)/config/all_in_one_controller.yaml" command="load"/>
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="boat_robot"
+    args="joint_state_controller C1 C2 C3 C4"/>
+
+
+    <node name="boat_robot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+     args="-urdf -param robot_description -model boat_robot -robot_namespace boat_robot" />
+
+</launch>

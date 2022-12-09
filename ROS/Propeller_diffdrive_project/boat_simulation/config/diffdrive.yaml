@@ -1,0 +1,35 @@
+boat_robot:
+    joint_state_controller:
+      type: joint_state_controller/JointStateController
+      publish_rate: 60
+  move:
+    type: diff_drive_controller/DiffDriveController
+    message_type: geometry_msgs/Twist
+    topic_name: thrust/left_thrust_cmd
+    axis_mappings:
+      -
+        axis: 1
+        target: linear.x
+        scale: 1.0
+      -
+        axis: 3
+        target: angular.z
+        scale: 1.0
+
+  turn_left_thruster:
+    type: topic
+    message_type: std_msgs/Float32
+    topic_name: /boat_robot/thruster/left_thrust_angle
+    axis_mappings:
+      - axis: 2
+        target: data
+        scale: -1.0
+
+  turn_right_thruster:
+    type: topic
+    message_type: std_msgs/Float32
+    topic_name: thrust/right_thrust_angle
+    axis_mappings:
+      - axis: 2
+        target: data
+        scale: -1.0

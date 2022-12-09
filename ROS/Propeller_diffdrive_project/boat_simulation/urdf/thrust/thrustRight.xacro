@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<robot name="boat_robot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<!-- Links -->
+
+  <!-- BACK RIGHT thrust -->
+  <!-- ==================================== -->
+  <link name="thrustRL">
+  <inertial>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="1"/>
+    <inertia ixx="0" iyy="0" izz="0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://boat_simulation/meshes/thrustLink.stl"/>
+    </geometry>
+  </visual>
+
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+       <mesh filename="package://boat_simulation/meshes/thrustLink.stl"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="BackPropellerR_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="1"/>
+    <inertia ixx="0" iyy="0" izz="0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://boat_simulation/meshes/BackPropellerR_1.stl"/>
+    </geometry>
+  </visual>
+
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://boat_simulation/meshes/BackPropellerR_1.stl"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="thrustJointR" type="revolute">
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <axis xyz="0.0 0.0 0"/>
+  <parent link="ShipBodyLink"/>
+  <child link="thrustRL"/>
+  <limit effort="5" lower="-pi" upper="pi" velocity="5"/>
+</joint>
+</robot>

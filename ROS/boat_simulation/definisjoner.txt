@@ -1,0 +1,240 @@
+Ship name:
+Boat_robot
+
+
+<!-- Hokuyo Laser
+<link name="hokuyo">
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+  <box size="0.1 0.1 0.1"/>
+    </geometry>
+  </collision>
+
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://boat_simulation/meshes/hokuyo.dae"/>
+    </geometry>
+  </visual>
+
+  <inertial>
+    <mass value="1e-5" />
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+  </inertial>
+</link>
+
+  <joint name="hokuyo_joint" type="fixed">
+  <axis xyz="0 1 0" />
+  <origin xyz=".15 0 .1" rpy="0 0 0"/>
+  <parent link="ShipBodyLink"/>
+  <child link="hokuyo"/>
+</joint>
+
+
+
+
+
+Links:
+Body:
+Bodylink: ShipBodyLink
+
+Hjul:
+right_wheel_link
+right_wheel_joint
+
+left_wheel_link
+left_wheel_joint
+
+
+
+$(find xacro)/xacro $(boat_simulation)/urdf/ship_robot.urdf.xacro" />
+
+ARmssssssss
+<!--############################### -->
+<!-- ROBOTIC ARM -->
+<!--############################### -->
+
+  <!-- ARM BASE -->
+  <!-- ==================================== -->
+  <joint type="revolute" name="arm_base_joint">
+    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+    <child link="arm_base_link"/>
+    <parent link="mobile_body_link"/>
+    <axis xyz="0 0 1" rpy="0 0 0"/>
+    <limit effort="100" velocity="100" lower="-${pi}" upper="${pi}"/>
+  </joint>
+
+  <xacro:link_cylinder link_name="arm_base_link" radius="${0.135/2}" length="0.2" density="1" mesh_name="package://custom_robot_tutorial/meshes/arm_base_mesh.stl" >
+    <!-- origin visual -->
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <!-- origin collision -->
+    <origin xyz="0 0 0.100" rpy="0 0 0"/>
+    <!-- origin interia -->
+    <origin xyz="0 0 0.100" rpy="0 0 0"/>
+  </xacro:link_cylinder>
+
+  <transmission name="arm_base_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="arm_base_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="arm_base_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- LINK 1 -->
+  <!-- ==================================== -->
+  <joint type="revolute" name="link_1_joint">
+    <origin xyz="0 0 0.2" rpy="-${pi/2} 0 0"/>
+    <child link="link_1_link"/>
+    <parent link="arm_base_link"/>
+    <axis xyz="0 0 1" rpy="0 0 0"/>
+    <limit effort="100" velocity="100" lower="-${pi/2}" upper="${pi/2}"/>
+  </joint>
+
+  <xacro:link_cylinder link_name="link_1_link" radius="${0.075/2}" length="0.385" density="1" mesh_name="package://custom_robot_tutorial/meshes/link_1_mesh.stl" >
+    <!-- origin visual -->
+    <origin xyz="0 -${0.385/2} 0" rpy="${pi/2} 0 0"/>
+    <!-- origin collision -->
+    <origin xyz="0 -${0.385/2} 0.0" rpy="${pi/2} 0 0"/>
+    <!-- origin interia -->
+    <origin xyz="0 -${0.385/2} 0.0" rpy="${pi/2} 0 0"/>
+  </xacro:link_cylinder>
+
+  <transmission name="link_1_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="link_1_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="link_1_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- LINK 2 -->
+  <!-- ==================================== -->
+  <joint type="revolute" name="link_2_joint">
+    <origin xyz="0 -0.385 0" rpy="0 0 0"/>
+    <child link="link_2_link"/>
+    <parent link="link_1_link"/>
+    <axis xyz="0 0 1" rpy="0 0 0"/>
+    <limit effort="100" velocity="100" lower="-${pi/2}" upper="${pi/2}"/>
+  </joint>
+
+  <xacro:link_box link_name="link_2_link" length="0.075" width="0.075" height="0.270" density="1" mesh_name="package://custom_robot_tutorial/meshes/link_2_mesh.stl">
+    <!-- origin visual -->
+    <origin xyz="0 -${0.270/2} 0" rpy="${pi/2} 0 0"/>
+    <!-- origin collision -->
+    <origin xyz="0 -${0.270/2} 0" rpy="${pi/2} 0 0"/>
+    <!-- origin interia -->
+    <origin xyz="0 -${0.270/2} 0" rpy="${pi/2} 0 0"/>
+  </xacro:link_box>
+
+  <transmission name="link_2_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="link_2_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="link_2_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- LINK 3 -->
+  <!-- ==================================== -->
+  <joint type="revolute" name="link_3_joint">
+    <origin xyz="0 -0.27 0" rpy="0 0 0"/>
+    <child link="link_3_link"/>
+    <parent link="link_2_link"/>
+    <axis xyz="0 0 1" rpy="0 0 0"/>
+    <limit effort="100" velocity="100" lower="-${pi/2}" upper="${pi/2}"/>
+  </joint>
+
+  <xacro:link_cylinder link_name="link_3_link" radius="${0.075/2}" length="0.115" density="1" mesh_name="package://custom_robot_tutorial/meshes/link_3_mesh.stl" >
+    <!-- origin visual -->
+    <origin xyz="0 -0.115 0" rpy="${pi/2} 0 0"/>
+    <!-- origin collision -->
+    <origin xyz="0 -${0.115/2} 0.0" rpy="${pi/2} 0 0"/>
+    <!-- origin interia -->
+    <origin xyz="0 -${0.115/2} 0.0" rpy="${pi/2} 0 0"/>
+  </xacro:link_cylinder>
+
+  <transmission name="link_3_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="link_3_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="link_3_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+
+
+for gazeobo:  <!-- CAMERA -->
+  <!-- ==================================== -->
+<link name = "camera">
+  <collision>
+    <origin xyz = "0 0 0" rpy = "0 0 0"/>
+    <geometry>
+      <box size = "${cameraSize} ${cameraSize} ${cameraSize}"/>
+    </geometry>
+  </collision>
+
+  <visual>
+    <origin xyz = "0 0 0" rpy = "0 0 0"/>
+    <geometry>
+      <box size = "${cameraSize} ${cameraSize} ${cameraSize}"/>
+    </geometry>
+    <material name = "green"/>
+  </visual>
+
+  <inertial>
+    <mass value = "${cameraMass}" />
+    <origin xyz = "0 0 0" rpy = "0 0 0"/>
+      <box_inertia m ="${cameraSize}" x=" ${cameraSize}" y=" ${cameraSize}" z=" ${cameraSize}"/>
+      <inertia ixx = "1e-6">
+
+
+gazebo: den over e xacro
+<!-- Camera Plugin-->
+<gazebo reference="camera">
+  <material>Gazebo/Green</material>
+  <sensor type="camera" name="camera1">
+    <update_rate>30.0</update_rate>
+    <camera name="head">
+      <horizontal_fov>1.3962634</horizontal_fov>
+      <image>
+        <width>800</width>
+        <height>800</height>
+        <format>R8G8B8</format>
+      </image>
+      <clip>
+        <near>0.02</near>
+        <far>300</far>
+      </clip>
+    </camera>
+    <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>0.0</updateRate>
+      <cameraName>mycamera</cameraName>
+      <imageTopicName>image_raw</imageTopicName>
+      <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+      <frameName>camera</frameName>
+      <hackBaseline>0.07</hackBaseline>
+      <distortionK1>0.0</distortionK1>
+      <distortionK2>0.0</distortionK2>
+      <distortionK3>0.0</distortionK3>
+      <distortionT1>0.0</distortionT1>
+      <distortionT2>0.0</distortionT2>
+    </plugin>
+  </sensor>
+</gazebo>

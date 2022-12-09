@@ -1,0 +1,63 @@
+<?xml version='1.0'?>
+<robot name="boat_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find boat_simulation)/urdf/common_macros.xacro"/>
+  <xacro:include filename="$(find boat_simulation)/urdf/boat_robot.urdf.gazebo"/>
+  <xacro:include filename="$(find boat_simulation)/urdf/materials.xacro"/>
+  <xacro:include filename="$(find boat_simulation)/urdf/thrust/thrustRight.xacro"/>
+  <xacro:include filename="$(find boat_simulation)/urdf/thrust/thrustLeft.xacro"/>
+
+
+  <!-- <gazebo>
+    <static>true</static>
+  </gazebo> -->
+
+<!--############################### -->
+<!-- MOBILE PLATFORM -->
+<!--############################### -->
+  <origin xyz="0 0 0.30" rpy="0 0 0"/>
+  <link name="base_footprint"/>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="ShipBodyLink" />
+    <origin xyz="0 0 0.0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- MOBILE BASE -->
+  <!-- ==================================== -->
+  <xacro:link_box link_name="ShipBodyLink" length="1" width="0.400" height="0.200" density="1" mesh_name="package://boat_simulation/meshes/boat_mesh.stl">
+    <!-- origin visual -->
+    <origin xyz="-0.5 0 0" rpy="0 0 0"/>
+    <!-- origin collision -->
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <!-- origin interia -->
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:link_box>
+
+  <!-- Hokuyo Laser-->
+  <link name="hokuyo">
+    <collision>
+      <origin xyz="-0.215 0 .11" rpy="0 0 0"/>
+      <geometry>
+    <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="-0.215 0 .11" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://boat_simulation/meshes/hokuyo.dae"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="-0.215 0 .11" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+    <joint name="hokuyo_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="-0.215 0 .11" rpy="0 0 0"/>
+    <parent link="ShipBodyLink"/>
+    <child link="hokuyo"/>
+  </joint>
+</robot>

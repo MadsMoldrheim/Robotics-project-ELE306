@@ -1,0 +1,17 @@
+Hi,
+
+It seems you found the hopeless folder.
+
+Countless hours was spent trying to implement the boat with propellers
+as a differential drive.
+
+However, even though it worked to move at first, it did not turn.
+
+It has the same problem as the first task. The boat does not want to turn
+at all... 
+
+Afte changing alot of code in a state of hopelessness, it didnt want to  run. 
+
+Well... Guess we gotta use waterwheels on the side then.
+
+-Elias
