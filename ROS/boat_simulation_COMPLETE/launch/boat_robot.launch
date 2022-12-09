@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro '$(find boat_simulation)/urdf/boat_robot.urdf.xacro'"/>
+  <remap from="/joint_states/" to="/boat_robot/joint_states" />
+
+  
+
+  <!-- Show in Rviz   -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find boat_simulation)/config/rviz_config.rviz"/>
+
+  <arg name="world" default="empty"/>
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="false"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+
+  <!-- LAUNCH GAZEBO WORLD -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find open_manipulator_with_tb3_gazebo)/worlds/empty.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+
+
+
+
+<!-- Joint state publisher -->
+ <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen">
+    <param name="publish_frequency" type="double" value="100.0" />
+    <param name="tf_prefix" value="boat_robot" />
+  </node>
+
+  <rosparam file="$(find boat_simulation)/config/all_in_one_controller.yaml" command="load"/>
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="boat_robot"
+    args="joint_state_controller C1 C2 C3 C4 C5 C6"/>
+
+  <node name="boat_robot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+   args="-urdf -param robot_description -model boat_robot -robot_namespace boat_robot" />
+
+</launch>
