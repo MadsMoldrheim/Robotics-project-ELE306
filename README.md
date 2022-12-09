@@ -39,3 +39,5 @@ and as a group. Together, we met up on several occasions to brainstorm to identi
 solutions, as well as delegating work to each member to work on as we went. In the end, the
 solutions were put into practice during simulations.
 
+**ROS Video**\
+https://youtu.be/ic8_mcGDgFw
